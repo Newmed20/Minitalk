@@ -6,11 +6,11 @@
 /*   By: mjadid <mjadid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:00:46 by mjadid            #+#    #+#             */
-/*   Updated: 2024/06/28 09:17:46 by mjadid           ###   ########.fr       */
+/*   Updated: 2024/06/29 23:59:40 by mjadid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	ft_putnbr(int nbr)
 {
@@ -47,8 +47,8 @@ void	signal_handler(int signal, siginfo_t *info, void *ptr)
 	if (i < 0)
 	{
 		write(1, &c, 1);
-		if(c == '\0')
-			kill(pid , SIGUSR1);
+		if (c == '\0')
+			kill(pid, SIGUSR1);
 		c = 0;
 		i = 7;
 	}

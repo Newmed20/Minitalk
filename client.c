@@ -6,7 +6,7 @@
 /*   By: mjadid <mjadid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:01:05 by mjadid            #+#    #+#             */
-/*   Updated: 2024/06/28 09:03:48 by mjadid           ###   ########.fr       */
+/*   Updated: 2024/06/29 23:55:05 by mjadid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(100);
 		i--;
 	}
 }

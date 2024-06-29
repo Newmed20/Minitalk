@@ -6,11 +6,11 @@
 /*   By: mjadid <mjadid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:01:05 by mjadid            #+#    #+#             */
-/*   Updated: 2024/06/28 09:39:57 by mjadid           ###   ########.fr       */
+/*   Updated: 2024/06/29 23:59:29 by mjadid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 int	ft_atoi(char *str)
 {
@@ -48,16 +48,17 @@ void	send_char(char c, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(100);
 		i--;
 	}
 }
-void    confirmation(int signal)
-{
-    if (signal == SIGUSR1)
-		write(1, "\e[32;40mthe msg is printed successfully!!!", 42);
 
+void	confirmation(int signal)
+{
+	if (signal == SIGUSR1)
+		write(1, "\e[32;40mthe msg is printed successfully!!!", 42);
 }
+
 int	main(int argc, char **argv)
 {
 	int	pid;
@@ -69,7 +70,7 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	if (argc == 3 && pid > 0)
 	{
-    	signal(SIGUSR1 , confirmation);
+		signal(SIGUSR1, confirmation);
 		while (argv[2][i])
 		{
 			send_char(argv[2][i], pid);
